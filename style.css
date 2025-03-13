@@ -1,0 +1,253 @@
+:root {
+    --primary-bg: #fff;
+    --nav-hover-bg: #121434;
+    --text-dark: #3d3d3d;
+    --text-light: #fff;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --border-radius: 10px;
+    --main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+    --base-font-size: 16px; /* Default browser size */
+    --title-font-size: clamp(2rem, 5vw, 3rem);
+    --footer-font-size: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-block-size: 100vh;
+    margin: 0;
+    padding: 0;
+    background: var(--primary-bg);
+    font-family: var(--main-font);
+    font-size: var(--base-font-size);
+    align-items: center;
+    overflow-x: hidden;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    inline-size: 100%;
+    padding: var(--spacing-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background: var(--primary-bg);
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navigation li a {
+    text-decoration: none;
+    padding: 0.3rem 0.5rem;
+    color: var(--text-dark);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    font-family: var(--main-font); /* Optional, inherited from body */
+}
+
+.navigation li a:hover {
+    background: var(--nav-hover-bg);
+    color: var(--text-light);
+}
+
+.title {
+    text-align: center;
+    margin-block-start: 4.375rem;
+    z-index: 999;
+}
+
+.title h1 {
+    font-family: var(--main-font);
+    font-size: var(--title-font-size);
+    font-weight: 600;
+    margin: 0;
+    padding: 3rem;
+}
+
+.turntable {
+    --turntable-inline: 220px;
+    --turntable-block: 160px;
+    inline-size: var(--turntable-inline);
+    block-size: var(--turntable-block);
+    margin-block-start: 3.125rem;
+    transform-style: preserve-3d;
+    animation: rotate 60s linear infinite;
+    position: relative;
+}
+
+@keyframes rotate {
+    from { transform: perspective(1000px) rotateY(0deg); }
+    to { transform: perspective(1000px) rotateY(360deg); }
+}
+
+.turntable span {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(350px);
+    -webkit-box-reflect: below var(--spacing-sm) linear-gradient(transparent, transparent, #0004);
+}
+
+.turntable span img {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    cursor: pointer;
+    user-select: none;
+    opacity: 1;
+    cursor: none;
+    border: none;
+    box-shadow: none;
+
+}
+
+.gallery-container{
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    
+}
+
+img{
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: var(--border-radius);
+
+}
+
+img:hover{
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: var(--border-radius);
+    box-shadow: 9px 9px 8px #aaaaaa;
+    transition: 0.5s;
+
+    
+}
+
+.tools {
+    display: flex;
+    width: 70%;
+    margin: 10px;
+    padding: 10px 10px 20px 10px;
+    border: 1px solid gray;
+    border-radius: var(--border-radius);
+    background-color: white;
+    cursor: pointer;
+
+}
+.tools:hover {
+  
+    width: 70%;
+    padding: 10px 10px 20px 10px;
+    border: 1px solid gray;
+    border-radius: var(--border-radius);
+    box-shadow: 9px 9px 8px #aaaaaa;
+    transition: 0.5s;
+}
+.caption{
+    padding: 25px;
+}
+
+@media (max-width: 600px){
+    .tools {
+        display: grid;
+        width: 70%;
+        margin: 10px;
+        padding: 10px 10px 20px 10px;
+        border: 1px solid gray;
+        border-radius: var(--border-radius);
+        background-color: white;
+        cursor: pointer;
+        justify-content: center;
+    
+    }
+    .tools:hover {
+      
+        width: 70%;
+        padding: 10px 10px 20px 10px;
+        border: 1px solid gray;
+        border-radius: var(--border-radius);
+        box-shadow: 9px 9px 8px #aaaaaa;
+        transition: 0.5s;
+    }
+    .caption{
+        padding: 10px;
+    }
+
+}
+ .bio {
+    display: flex;
+    font-family: var(--main-font);
+    justify-content: center;
+    margin-left: 100px;
+    margin-right: 100px;
+
+ }
+
+
+.social-icons {
+    display: flex;
+    font-size: 2.5rem;
+    justify-content: center;
+    
+}
+.fa-youtube {
+    color: red;
+    padding: 1.5rem;
+}
+
+.fa-x-twitter {
+    color: black;
+    padding: 1.5rem;
+}
+
+.fa-instagram{
+    color: purple;
+    padding: 1.5rem;
+}
+
+.fa-facebook {
+    color: blue;
+    padding: 1.5rem;
+}
+
+.footer {
+    margin-top: auto;
+    padding: var(--spacing-sm);
+    inline-size: 100%;
+    background: var(--primary-bg);
+    color: var(--text-dark);
+    font-family: var(--main-font);
+    font-size: var(--footer-font-size);
+    text-align: center;
+    
+}
